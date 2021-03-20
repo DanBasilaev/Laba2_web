@@ -28,7 +28,9 @@ function geo(){
     })
 
 }
-var update_desktop = document.getElementById('button-desktop');
-var update_mobile= document.getElementById('button-mobile');
-update_desktop.onclick = geo();
-update_mobile.onclick = geo();
+geo();
+update_desktop = document.getElementById('button-desktop');
+update_mobile= document.getElementById('button-mobile');
+update_desktop.onclick = geo;
+update_mobile.onclick = geo;
+
