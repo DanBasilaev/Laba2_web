@@ -5,7 +5,7 @@ function geo(){
         var lat = position.coords.latitude;
         var lon = position.coords.longitude;
         const key = '5aa741a37ff6512516bcb3da3ea973f0';
-        var url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=metric&lang=ru&appid=' + key;
+        var url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=metric&lang=ru&appid=' + key;
 
 
         fetch(url).then(function (resp) {return resp.json() }).then(function (data) {
@@ -23,7 +23,6 @@ function geo(){
             /*--- Обработка ошибок ---*/
             .catch(function () {
                 //Обрабатываем ошибки
-                alert("ошибка");
             });
 
 
@@ -32,7 +31,7 @@ function geo(){
 /*---------------------------------------------------  Геопазиция НЕ доступна      ---------------------------------------------------*/
         if (GeolocationPositionError.PERMISSION_DENIED){
             const key = '5aa741a37ff6512516bcb3da3ea973f0';
-            var url = 'http://api.openweathermap.org/data/2.5/weather?q=Санкт-Петербург&units=metric&lang=ru&appid=' + key;
+            var url = 'https://api.openweathermap.org/data/2.5/weather?q=Санкт-Петербург&units=metric&lang=ru&appid=' + key;
 
 
             fetch(url).then(function (resp) {return resp.json() }).then(function (data) {
@@ -50,7 +49,7 @@ function geo(){
                 /*--- Обработка ошибок ---*/
                 .catch(function () {
                     //Обрабатываем ошибки
-                    alert("ошибка");
+
                 });
         }
     })
