@@ -8,39 +8,37 @@
 </head>
 <body>
 
-<div class="header">
+<header>
   <h1>Погода здесь</h1>
   <button id="button-desktop">обновить геолокацию</button>
   <button id="button-mobile"><img src="img/update.png" alt=""></button>
-</div>
+</header>
 
-<div class="main">
-  <div class="main_city">
+<main>
+  <section class="main_city">
     <div class="first">
-      <h1>Saint-Petersburg</h1>
-      <div class="flex_conteiner"></div>
-      <img src="img/облачно.jfif" alt="">
-      <span>8°C</span>
+      <h2>Название города</h2>
+      <div class="weather__icon">Картинка</div>
+      <p>Температура</p>
     </div>
     <div class="second">
       <ul class="weather">
-        <li>Ветер <span>6 m/s</span></li>
-        <li>Облачность <span>Broken louds</span></li>
-        <li>Давление <span>1013 hpa</span></li>
-        <li>Влажность <span>52%</span></li>
-        <li>Координаты <span>[58.88, 30.42]</span></li>
+        <li>Ветер <span class="wind">скорость ветра</span></li>
+        <li>Облачность <span class="cloud">облака</span></li>
+        <li>Давление <span class="pressure">сила давления</span></li>
+        <li>Влажность <span class="humidity">% влажности</span></li>
+        <li>Координаты <span class="coord">координаты города</span></li>
       </ul>
     </div>
-  </div>
+  </section>
 
-  <div class="favorites">
+  <section class="favorites">
     <h2>Избранное</h2>
     <form method="post" action="#" id="form">
       <input type="text" name="add_city" placeholder="Добавить новый город">
       <input type="image" name="btn" src="img/plus.png">
     </form>
 
-    <div class="list">
       <ul class="menu">
         <li class="city">
           <div class="flex">
@@ -139,10 +137,9 @@
         </li>
 
       </ul>
-    </div>
 
-  </div>
-</div>
-
+  </section>
+</main>
+<script src="js/script.js"></script>
 </body>
 </html>
