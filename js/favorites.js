@@ -7,9 +7,7 @@ const KEY = '5aa741a37ff6512516bcb3da3ea973f0';
 let Form = document.getElementById('form')
 Form.onsubmit = function() {
     let name = document.getElementById('POST-name');
-    //let key = String(favorites.length)
     favorites.setItem(name.value, name.value);
-
     //favorites.clear();
 
 };
