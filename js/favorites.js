@@ -3,14 +3,12 @@
 favorites = window.localStorage;
 const KEY = '5aa741a37ff6512516bcb3da3ea973f0';
 
-
 /*-------- Добавление --------*/
 let Form = document.getElementById('form')
 Form.onsubmit = function() {
     let name = document.getElementById('POST-name');
-    let key = String(favorites.length)
-    favorites.setItem(key, name.value);
-    location.reload();
+    //let key = String(favorites.length)
+    favorites.setItem(name.value, name.value);
 
     //favorites.clear();
 
@@ -19,7 +17,9 @@ Form.onsubmit = function() {
 
 for(let i=0; i<favorites.length; i++) {
     let key = favorites.key(i);
-    console.log(`${key}: ${localStorage.getItem(key)}`)
+
+    //console.log(`${key}: ${localStorage.getItem(key)}`)
+
     var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + favorites.getItem(key) + '&units=metric&lang=ru&appid=' + KEY;
 
     fetch(url).then(function (resp) {return resp.json() }).then(function (data) {
