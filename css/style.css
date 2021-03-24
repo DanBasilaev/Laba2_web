@@ -80,12 +80,24 @@ main{
 }
 /*---------Main_City*/
 
-.main_city{
+#main_city{
   display: -webkit-flex;
   display: flex;
   margin-bottom: 2%;
 
 }
+
+#load_main{
+  font: normal 200% 'century gothic', "Times New Roman", sans-serif;
+
+}
+.load{
+  font: normal 150% 'century gothic', "Times New Roman", sans-serif;
+  border-radius: 2%;
+  background-color: #e4e4e4;
+  text-align: center;
+}
+
 /*first_block*/
 .first{
   width: 48%;
@@ -269,7 +281,7 @@ ul.menu li.city{
 
 
   /*Main_City*/
-  .main_city{
+  #main_city{
     display: block;
   }
   .first{
@@ -313,6 +325,11 @@ ul.menu li.city{
   .flex button{
     margin-left: 25%;
   }
+
+  .load{
+    height: 70px;
+  }
+
   /*End Favorites*/
 
 }
