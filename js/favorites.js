@@ -8,8 +8,6 @@ let Form = document.getElementById('form')
 Form.onsubmit = function() {
     let name = document.getElementById('POST-name');
     favorites.setItem(name.value, name.value);
-    //favorites.clear();
-
 };
 
 

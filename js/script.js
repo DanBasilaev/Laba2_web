@@ -1,9 +1,7 @@
 const load = document.getElementById('load_main');
 const first = document.getElementsByClassName('first')[0];
 const second = document.getElementsByClassName('second')[0];
-console.log(load.getAttributeNames());
-console.log(first.getAttributeNames());
-console.log(second.getAttributeNames());
+
 
 function geo(){
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -16,12 +14,6 @@ function geo(){
 
         fetch(url).then(function (resp) {return resp.json() }).then(function (data) {
 
-
-            load.hidden = true;
-            first.removeAttribute('hidden');
-            second.removeAttribute('hidden');
-
-
             document.querySelector(".first h2").textContent = data.name;
             document.querySelector('.weather__icon').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png">`;
             document.querySelector(".first p").textContent = data.main.temp + '°C';
@@ -32,12 +24,14 @@ function geo(){
             document.querySelector(".humidity").textContent = data.main.humidity +'%';
             document.querySelector(".coord").textContent = '['+data.coord.lat + ', ' + data.coord.lon + ']';
 
-            document.body.hidden = false;
+
+            load.hidden = true;
+            first.removeAttribute('hidden');
+            second.removeAttribute('hidden');
         })
             /*--- Обработка ошибок ---*/
             .catch(function () {
                 //Обрабатываем ошибки
-
                 alert("Ошибка запроса");
             });
 
@@ -52,13 +46,7 @@ function geo(){
 
 
 
-
-            load.hidden = true;
-            first.removeAttribute('hidden');
-            second.removeAttribute('hidden');
-
             fetch(url).then(function (resp) {return resp.json() }).then(function (data) {
-                //console.log(data);
                 document.querySelector(".first h2").textContent = data.name;
                 document.querySelector('.weather__icon').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png">`;
                 document.querySelector(".first p").textContent = data.main.temp + '°C';
@@ -69,7 +57,10 @@ function geo(){
                 document.querySelector(".humidity").textContent = data.main.humidity +'%';
                 document.querySelector(".coord").textContent = '['+data.coord.lat + ', ' + data.coord.lon + ']';
 
-                document.body.hidden = false;
+
+                load.hidden = true;
+                first.removeAttribute('hidden');
+                second.removeAttribute('hidden');
             })
 
                 /*--- Обработка ошибок ---*/
@@ -82,13 +73,16 @@ function geo(){
     })
 
 }
-document.body.hidden = true;
 
 
-geo();
+geo()
+
 update_desktop = document.getElementById('button-desktop');
 update_mobile= document.getElementById('button-mobile');
 update_desktop.onclick = geo;
 update_mobile.onclick = geo;
+
+
+
 
 
