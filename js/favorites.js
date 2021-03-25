@@ -2,7 +2,6 @@
 
 favorites = window.localStorage;
 const KEY = '5aa741a37ff6512516bcb3da3ea973f0';
-//favorites.clear();
 
 /*-------- Добавление --------*/
 let Form = document.getElementById('form');
@@ -15,24 +14,27 @@ Form.addEventListener("submit", function (event){
 
 });
 
+
+//Загрузка избранного
 function loadStorage(){
+    //Прорадитель избранного
+    let favor = document.querySelector('.menu');
+
+    //цикл очищения
+    while (favor.firstChild){
+        favor.removeChild(favor.lastChild)
+    }
+
+    //Цикл заполнения
     for(let i=0; i<favorites.length; i++) {
         let key = favorites.key(i);
-        fill(key);
+        fill(key, favor);
     }
 }
 
+//Функция генерации элемента
+function fill(key, favor){
 
-function fill(key){
-
-    /*--------- Удаление --------*/
-    function del(evt){
-        favorites.removeItem(key);
-        evt.preventDefault();
-    }
-
-
-    let favor = document.querySelector('.menu');
     let city = document.createElement("li");
     city.hidden = true;
 
@@ -62,7 +64,15 @@ function fill(key){
         img.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png">`;
         let btn = document.createElement("button");
         btn.classList.add('delete');
-        btn.addEventListener("click", del, false);
+
+        //Функция удаления города
+        btn.addEventListener("click", () => {
+            favorites.removeItem(key);
+            load.remove();
+            city.remove();
+
+        }, false);
+
 
         btn.innerHTML =  `<img src="img/del.jpeg">`;
 
@@ -131,4 +141,5 @@ function fill(key){
         });
 }
 
+loadStorage();
 
